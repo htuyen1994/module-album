@@ -72,9 +72,9 @@ if ($nv_Request->isset_request("submit", "post")) {
 
             if ($exe) {
                 if ($post['id'] > 0) {
-                    $err[] = "Cập nhật album thành công";
+                    $err[] = "Cập nhật ảnh thành công";
                 } else {
-                    $err[] = "Thêm album thành công";
+                    $err[] = "Thêm ảnh thành công";
                 }
             } else {
                 $err[] = "Lỗi không thực hiện được";

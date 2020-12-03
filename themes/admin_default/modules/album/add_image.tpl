@@ -8,7 +8,7 @@
 <input type="hidden" name="id" value="{POST.id}">
     <div class="form-group row">
         <div class="col-md-4">
-            <label><strong>Tên ảnh</strong></label>
+            <label><strong>Tên ảnh *</strong></label>
         </div>
         <div class="col-md-20">
             <input class="form-control" type="text" name="name" value="{POST.name}" />
@@ -29,7 +29,7 @@
     </div>
     <div class="form-group row">
         <div class="col-md-4">
-            <label><strong>Ảnh</strong></label>
+            <label><strong>Ảnh *</strong></label>
         </div>
         <div class="col-md-20">
             <input class="form-control" type="file" name="uploadfile"/>
