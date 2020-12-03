@@ -30,6 +30,9 @@ function nv_theme_samples_main($array_data)
         $i = ($page - 1) * $perpage;
         foreach ($array_data as $row) {
             $row['stt'] = $i + 1;
+            if(!empty('image')){
+                $row['image'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_name . '/' . $row['image'];
+            }
             $xtpl->assign('ROW', $row);
             $xtpl->parse('main.loop');
             $i++;
