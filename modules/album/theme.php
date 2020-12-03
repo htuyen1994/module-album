@@ -14,29 +14,36 @@ if (!defined('NV_IS_MOD_SAMPLES')) {
 
 /**
  * nv_theme_samples_main()
- * 
+ *
  * @param mixed $array_data
  * @return
  */
 function nv_theme_samples_main($array_data)
 {
-    global $module_info, $lang_module, $lang_global, $op;
+    global $module_info, $lang_module, $lang_global, $op, $module_name;
 
     $xtpl = new XTemplate($op . '.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_info['module_theme']);
     $xtpl->assign('LANG', $lang_module);
     $xtpl->assign('GLANG', $lang_global);
 
-    //------------------
-    // Viết code vào đây
-    //------------------
+    if (!empty($array_data)) {
+        $i = ($page - 1) * $perpage;
+        foreach ($array_data as $row) {
+            $row['stt'] = $i + 1;
+            $xtpl->assign('ROW', $row);
+            $xtpl->parse('main.loop');
+            $i++;
+        }
+    }
 
     $xtpl->parse('main');
     return $xtpl->text('main');
 }
 
+
 /**
  * nv_theme_samples_detail()
- * 
+ *
  * @param mixed $array_data
  * @return
  */
@@ -58,7 +65,7 @@ function nv_theme_samples_detail($array_data)
 
 /**
  * nv_theme_samples_search()
- * 
+ *
  * @param mixed $array_data
  * @return
  */
