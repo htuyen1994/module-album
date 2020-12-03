@@ -40,7 +40,7 @@
             <!-- END: loop -->
         </tbody>
     </table>
-    {GENERATE_PAGE}
+    <div class="text-center">{GENERATE_PAGE}</div>
 </div>
 <script>
 function nv_change_weight(id) {

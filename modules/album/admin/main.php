@@ -111,7 +111,7 @@ if (!empty($array_row)) {
     }
 }
 
-$base_url = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module_name . '&amp;' . NV_OP_VARIABLE . '=list';
+$base_url = NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '=' . $module_name . '&amp;' . NV_OP_VARIABLE . '=main';
 $generate_page = nv_generate_page($base_url, $total, $perpage, $page);
 $xtpl->assign('GENERATE_PAGE', $generate_page);
 
