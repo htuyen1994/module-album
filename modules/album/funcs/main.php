@@ -38,9 +38,14 @@ while ($row = $result->fetch()) {
     $array_data[$row['id']] = $row;
 }
 
+$base_url = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '='
+    . $module_name . '&amp;' . NV_OP_VARIABLE . '=main';
+
+$generate_page = nv_generate_page($base_url, $total, $perpage, $page);
+
 $page_title = $lang_module['main'];
 
-$contents = nv_theme_samples_main($array_data);
+$contents = nv_theme_samples_main($array_data, $page, $perpage, $generate_page);
 
 include NV_ROOTDIR . '/includes/header.php';
 echo nv_site_theme($contents);
