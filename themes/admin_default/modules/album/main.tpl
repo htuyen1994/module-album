@@ -48,7 +48,7 @@ function nv_change_weight(id) {
     $.ajax({
         url : script_name + '?' + nv_name_variable + '=' + nv_module_name
                 + '&' + nv_fc_variable
-                + '=list_product&change_weight=1&id=' + id + '&new_weight='+new_weight,
+                + '=main&change_weight=1&id=' + id + '&new_weight='+new_weight,
         success : function(result) {
             if (result != 'ERR') {
                 location.reload();
@@ -60,10 +60,10 @@ function nv_change_active(id) {
     $.ajax({
         url : script_name + '?' + nv_name_variable + '=' + nv_module_name
                 + '&' + nv_fc_variable
-                + '=list_product&change_active=1&id=' + id,
+                + '=main&change_active=1&id=' + id,
         success : function(result) {
             if (result == 'ERR') {
-                alert('Lỗi k xác định');
+                alert('Lỗi không xác định');
                 location.reload();
             }
         }
@@ -71,7 +71,7 @@ function nv_change_active(id) {
 }
 $(document).ready(function (){
     $('.delete').click(function () {
-        if (confirm("bạn có muốn xóa!")) {
+        if (confirm("Bạn có muốn xóa!")) {
             return true;
         } else {
             return false;
