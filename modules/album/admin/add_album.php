@@ -47,7 +47,7 @@ if ($nv_Request->isset_request("submit", "post")) {
         try {
             if ($post['id'] > 0) {
                 // update
-                $sql = "UPDATE nv4_album SET name=:name, image:=image, description:= description,
+                $sql = "UPDATE nv4_album SET name=:name, image=:image, description=:description,
                     updatetime=:updatetime WHERE id= " . $post['id'];
                 $stmt = $db->prepare($sql);
                 $stmt->bindValue("updatetime", 0);
