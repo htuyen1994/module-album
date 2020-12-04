@@ -59,17 +59,28 @@ function nv_theme_samples_main($array_data, $page, $perpage, $generate_page)
  * @param mixed $array_data
  * @return
  */
-function nv_theme_samples_detail($array_data)
+function nv_theme_samples_detail($row)
 {
     global $module_info, $lang_module, $lang_global, $op;
 
     $xtpl = new XTemplate($op . '.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_info['module_theme']);
     $xtpl->assign('LANG', $lang_module);
     $xtpl->assign('GLANG', $lang_global);
+    $xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);
+    $xtpl->assign('NV_NAME_VARIABLE', NV_NAME_VARIABLE);
+    $xtpl->assign('NV_OP_VARIABLE', NV_OP_VARIABLE);
+    $xtpl->assign('MODULE_NAME', $module_name);
+    $xtpl->assign('OP', $op);
 
-    //------------------
-    // Viết code vào đây
-    //------------------
+    if (!empty($row)) {
+        foreach ($row as $row) {
+            if(!empty('image')){
+                $row['image'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_name . '/' . $row['image'];
+            }
+            $xtpl->assign('DATA', $row);
+            $xtpl->parse('main.loop');
+        }
+    }
 
     $xtpl->parse('main');
     return $xtpl->text('main');
