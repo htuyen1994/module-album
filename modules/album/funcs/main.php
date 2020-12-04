@@ -33,9 +33,9 @@ $db->select('*')
 $sql = $db->sql();
 $result = $db->query($sql);
 while ($row = $result->fetch()) {
-    $row['url_view'] = nv_url_rewrite(NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA
+     $row['url_view'] = nv_url_rewrite(NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA
         . '&amp;' . NV_NAME_VARIABLE . '=' . $module_name . '&amp;' . NV_OP_VARIABLE . '=detail&id=' . $row['id']);
-    $array_data[$row['id']] = $row;
+     $array_data[$row['id']] = $row;
 }
 
 $base_url = NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;' . NV_NAME_VARIABLE . '='

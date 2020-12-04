@@ -17,11 +17,29 @@ $key_words = $module_info['keywords'];
 
 $array_data = [];
 
-//------------------
-// Viết code vào đây
-//------------------
+$id = $nv_Request->get_int('id', 'get', 0);
+if ($id > 0) {
+    $sql = "SELECT * FROM nv4_album_detail WHERE album =  " . $id;
+    $result = $db->query($sql);
+    if (!$row = $result->fetchAll()) {
+        nv_redirect_location(NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;'
+            . NV_NAME_VARIABLE . '=' . $module_name . '&amp;' . NV_OP_VARIABLE . '=main');
+    }
 
-$contents = nv_theme_samples_detail($array_data);
+    $db->sqlreset()
+    ->select('*')
+    ->from('nv4_album');
+    $sql = $db->sql();
+    $result = $db->query($sql)->fetch();
+
+    $page_title = $result['name'];
+
+} else {
+    nv_redirect_location(NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&amp;'
+        . NV_NAME_VARIABLE . '=' . $module_name . '&amp;' . NV_OP_VARIABLE . '=main');
+}
+
+$contents = nv_theme_samples_detail($row);
 
 include NV_ROOTDIR . '/includes/header.php';
 echo nv_site_theme($contents);
