@@ -31,7 +31,7 @@
                 </td>
                 <td>{ROW.description}</td>
                 <td></td>
-                <td></td>
+                <td>{ROW.time}</td>
                 <td class="text-center">
                     <input type="checkbox" name="active" {ROW.active} onchange="nv_change_active({ROW.id})">
                 </td>
