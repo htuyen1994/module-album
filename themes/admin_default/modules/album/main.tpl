@@ -28,7 +28,7 @@
                 	<img src="{ROW.image}" width="100px" height="100px">
                 </td>
                 <td>{ROW.description}</td>
-                <td></td>
+                <td>{ROW.user}</td>
                 <td>{ROW.time}</td>
                 <td class="text-center">
                     <input type="checkbox" name="active" {ROW.active} onchange="nv_change_active({ROW.id})">

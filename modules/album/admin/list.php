@@ -114,6 +114,7 @@ if (!empty($array_row)) {
             $row['image'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_name . '/' . $row['image'];
         }
         $row['time'] = date('l, F j, Y g:i a', $row['addtime']);
+        $row['user'] = NV_ADMIN;
         $xtpl->assign('ROW', $row);
         $xtpl->parse('main.loop');
         $i++;
