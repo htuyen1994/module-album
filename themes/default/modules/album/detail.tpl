@@ -1,25 +1,37 @@
 <!-- BEGIN: main -->
-<div class="table-responsive">
-    <table class="table table-striped table-bordered table-hover">
-    <caption>Danh sách ảnh</caption>
-        <thead>
-            <tr class="text-center">
-                <th class="text-nowrap">Tên ảnh</th>
-                <th class="text-nowrap">Ảnh</th>
-                <th class="text-nowrap">Mô tả</th>
-            </tr>
-        </thead>
-        <tbody>
-        	<!-- BEGIN: loop -->
-            <tr>
-                <td>{DATA.name}</td>
-                <td>
-                	<img src="{DATA.image}" width="100px" height="100px">
-                </td>
-                <td>{DATA.description}</td>
-            </tr>
-        </tbody>
-        	<!-- END: loop -->
-    </table>
-</div>
+<div><h3>Danh sách ảnh</h3></div><br>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">   	
+      	<div class="item active">
+        	<img src={DATA.image} style="width:100%">
+        	<div class="carousel-caption">
+        		<h3>{DATA.name}</h3>
+        		<p>{DATA.description}</p>
+      		</div>
+      	</div>
+      	<!-- BEGIN: loop -->
+      	<div class="item">
+        	<img src={DATA.image} style="width:100%">
+        	<div class="carousel-caption">
+        		<h3>{DATA.name}</h3>
+        		<p>{DATA.description}</p>
+      		</div>
+      	</div>
+      	<!-- END: loop -->
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      	<span class="glyphicon glyphicon-chevron-left"></span>
+      	<span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      	<span class="glyphicon glyphicon-chevron-right"></span>
+      	<span class="sr-only">Next</span>
+    </a>
+  </div>
 <!-- END: main -->
