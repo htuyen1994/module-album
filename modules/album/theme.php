@@ -34,13 +34,17 @@ function nv_theme_samples_main($array_data, $page, $perpage, $generate_page)
     if (!empty($array_data)) {
         $i = ($page - 1) * $perpage;
         foreach ($array_data as $row) {
-            $row['stt'] = $i + 1;
-            if(!empty('image')){
-                $row['image'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_name . '/' . $row['image'];
+            if($row['active'] == 0)
+                continue;
+            else{
+                $row['stt'] = $i + 1;
+                if(!empty('image')){
+                    $row['image'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_name . '/' . $row['image'];
+                }
+                $xtpl->assign('ROW', $row);
+                $xtpl->parse('main.loop');
+                $i++;
             }
-            $xtpl->assign('ROW', $row);
-            $xtpl->parse('main.loop');
-            $i++;
         }
     }
 
@@ -74,11 +78,15 @@ function nv_theme_samples_detail($row)
 
     if (!empty($row)) {
         foreach ($row as $row) {
-            if(!empty('image')){
-                $row['image'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_name . '/' . $row['image'];
+            if($row['active'] == 0)
+                continue;
+            else{
+                if(!empty('image')){
+                    $row['image'] = NV_BASE_SITEURL . NV_UPLOADS_DIR . '/' . $module_name . '/' . $row['image'];
+                }
+                $xtpl->assign('DATA', $row);
+                $xtpl->parse('main.loop');
             }
-            $xtpl->assign('DATA', $row);
-            $xtpl->parse('main.loop');
         }
     }
 
