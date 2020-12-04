@@ -65,7 +65,7 @@ function nv_theme_samples_main($array_data, $page, $perpage, $generate_page)
  */
 function nv_theme_samples_detail($row)
 {
-    global $module_info, $lang_module, $lang_global, $op;
+    global $module_info, $lang_module, $lang_global, $op, $module_name;
 
     $xtpl = new XTemplate($op . '.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_info['module_theme']);
     $xtpl->assign('LANG', $lang_module);
